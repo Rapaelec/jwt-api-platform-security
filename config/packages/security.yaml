@@ -12,6 +12,25 @@ security:
                 # if you're using multiple entity managers
                 # manager_name: customer
     firewalls:
+        login:
+            pattern:  ^/api/login
+            stateless: true
+            anonymous: true
+            provider: simple_user_provider
+            json_login:
+                check_path:               /api/login_check
+                username_path:            email
+                password_path:            password
+                success_handler:          lexik_jwt_authentication.handler.authentication_success
+                failure_handler:          lexik_jwt_authentication.handler.authentication_failure
+        api:
+            pattern:   ^/api
+            stateless: true
+            anonymous: true
+            provider: simple_user_provider
+            guard:
+                authenticators:
+                    - lexik_jwt_authentication.jwt_token_authenticator
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
@@ -40,4 +59,8 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
         - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin,       roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api,       roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api/*,       roles: IS_AUTHENTICATED_FULLY }
         - { path: ^/, roles: ROLE_USER }
