@@ -7,7 +7,7 @@ security:
         in_memory: { memory: ~ }
         simple_user_provider:
             entity:
-                class: AppBundle:User
+                class: App:User
                 # property: username
                 # if you're using multiple entity managers
                 # manager_name: customer
@@ -17,8 +17,16 @@ security:
             security: false
         main:
             anonymous: true
-            pattern: ^/
+            form_login:
+                login_path: app_login
+                check_path: app_login
+                default_target_path: home_page
+            logout: 
+                path: app_logout
             provider: simple_user_provider
+            guard:
+                authenticators:
+                    - App\Security\AppCustomAuthenticator
 
             # activate different ways to authenticate
 
@@ -31,5 +39,6 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        # - { path: ^/admin, roles: ROLE_ADMIN }
-        # - { path: ^/profile, roles: ROLE_USER }
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/, roles: ROLE_USER }
+        - { path: ^/admin, roles: ROLE_ADMIN }
