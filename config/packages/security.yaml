@@ -1,4 +1,7 @@
 security:
+    # config/packages/security.yaml
+    encoders:
+        App\Entity\User: bcrypt
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
         in_memory: { memory: ~ }
@@ -8,6 +11,7 @@ security:
             security: false
         main:
             anonymous: true
+
 
             # activate different ways to authenticate
 
