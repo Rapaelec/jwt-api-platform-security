@@ -3,10 +3,61 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+    {% block stylesheets %}
+        <!--===============================================================================================-->
+        <link
+        href="{{ asset('utils/images/icons/favicon.ico') }}" rel="icon" type="image/png"/>
+        <!--===============================================================================================-->
+        <link
+        href="{{ asset('utils/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
+        <!--===============================================================================================-->
+        <link
+        href="{{ asset('utils/fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+        <!--===============================================================================================-->
+        <link
+        href="{{ asset('utils/fonts/Linearicons-Free-v1.0.0/icon-font.min.css') }}" rel="stylesheet" type="text/css">
+        <!--===============================================================================================-->
+        <link
+        href="{{ asset('utils/vendor/animate/animate.css') }}" rel="stylesheet" type="text/css">
+        <!--===============================================================================================-->
+        <link
+        href="{{ asset('utils/vendor/css-hamburgers/hamburgers.min.css') }}" rel="stylesheet" type="text/css">
+        <!--===============================================================================================-->
+        <link
+        href="{{ asset('utils/vendor/animsition/css/animsition.min.css') }}" rel="stylesheet" type="text/css">
+        <!--===============================================================================================-->
+        <link
+        href="{{ asset('utils/vendor/select2/select2.min.css') }}" rel="stylesheet" type="text/css">
+        <!--===============================================================================================-->
+        <link
+        href="{{ asset('utils/vendor/daterangepicker/daterangepicker.css') }}" rel="stylesheet" type="text/css">
+        <!--===============================================================================================-->
+        <link href="{{ asset('utils/css/util.css') }}" rel="stylesheet" type="text/css">
+        <link
+            href="{{ asset('utils/css/main.css') }}" rel="stylesheet" type="text/css">
+        <!--===============================================================================================-->
+    {% endblock %}
+                                    
     </head>
     <body>
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        {% block javascripts %}
+            <!--===============================================================================================-->
+            <script src="{{ asset('utils/vendor/jquery/jquery-3.2.1.min.js') }}"></script>
+            <!--===============================================================================================-->
+            <script src="{{ asset('utils/vendor/animsition/js/animsition.min.js') }}"></script>
+            <!--===============================================================================================-->
+            <script src="{{ asset('utils/vendor/bootstrap/js/popper.js') }}"></script>
+            <script src="{{ asset('utils/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+            <!--===============================================================================================-->
+            <script src="{{ asset('utils/vendor/select2/select2.min.js') }}"></script>
+            <!--===============================================================================================-->
+            <script src="{{ asset('utils/vendor/daterangepicker/moment.min.js') }}"></script>
+            <script src="{{ asset('utils/vendor/daterangepicker/daterangepicker.js') }}"></script>
+            <!--===============================================================================================-->
+            <script src="{{ asset('utils/vendor/countdowntime/countdowntime.js') }}"></script>
+            <!--===============================================================================================-->
+            <script src="{{ asset('utils/js/main.js') }}"></script>
+        {% endblock %}
     </body>
 </html>

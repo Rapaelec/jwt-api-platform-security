@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{# {% extends 'base.html.twig' %}
 {% block title %}Register{% endblock %}
 {% block body %}
     <h1>Register</h1>
@@ -7,4 +7,44 @@
     {{ form_row(registrationForm.plainPassword) }}
     <button class="btn">Register</button>
     {{ form_end(registrationForm) }}
-{% endblock %}
+{% endblock %} #}
+
+{% extends 'base.html.twig' %}
+{% block title %}Register{% endblock %}
+{% block body %}
+    <h1>Register</h1>
+    <div class="limiter">
+        <div class="container-login100" style="background-image: url('utils/images/bg-01.jpg');">
+            <div class="wrap-login100 p-t-30 p-b-50">
+                <span class="login100-form-title p-b-41">
+                    Registration
+                </span>
+                {{ form_start(registrationForm , {'method': 'post', "attr": {"class": "login100-form validate-form p-b-33 p-t-5"}}) }}
+                {{ form_errors(registrationForm) }}
+                <div class="wrap-input100 validate-input" data-validate="Enter username">
+                    {{ form_widget(registrationForm.username, {"attr": {"placeholder": "User name", "class": "input100", "type": "text"}}) }}
+                    <span class="focus-input100" data-placeholder="&#xe82a;"></span>
+                </div>
+                <div class="wrap-input100 validate-input" data-validate="Enter email">
+                    {{ form_widget(registrationForm.email, {"attr": {"placeholder": "Email", "class": "input100"}}) }}
+                    <span class="focus-input100" data-placeholder="&#xe82a;"></span>
+                </div>
+                {% for passwordForm in registrationForm.plainPassword %}
+                    <div class="wrap-input100 validate-input" data-validate="Enter password">
+                        {{ form_widget(passwordForm, {"attr": {"placeholder": loop.first ? "Password" : "confirm password", "class": "input100", "type": "text"}}) }}
+                        <span class="focus-input100" data-placeholder="&#xe80f;"></span>
+                    </div>
+                {% endfor %}
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                    <div class="container-login100-form-btn m-t-32">
+                        <button class="login100-form-btn" type="submit">
+                            Register
+                        </button>
+                    </div>
+                    {{ form_rest(registrationForm) }}
+                    {{ form_end(registrationForm) }}
+                </div>
+            </div>
+        </div>
+        <div id="dropDownSelect1"></div>
+    {% endblock %}
