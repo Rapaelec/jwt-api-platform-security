@@ -1,6 +1,58 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Home{% endblock %}
+{% block stylesheets %}
+    {# {{ parent() }} #}
+    <link href="{{ asset('utils/vendor/simple-line-icons/css/simple-line-icons.css') }}" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="{{ asset('utils/css/stylish-portfolio.min.css') }}" rel="stylesheet"></head>
+
+{% endblock %}
 {% block body %}
-    <h1>manaona</h1>
+    <!-- Navigation -->
+    {# <a class="menu-toggle rounded" href="#">
+        <i class="fas fa-bars"></i>
+    </a> #}
+    {# <nav id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li class="sidebar-brand">
+                <a class="js-scroll-trigger" href="#page-top">Start Bootstrap</a>
+            </li>
+            <li class="sidebar-nav-item">
+                <a class="js-scroll-trigger" href="#page-top">Home</a>
+            </li>
+            <li class="sidebar-nav-item">
+                <a class="js-scroll-trigger" href="#about">About</a>
+            </li>
+            <li class="sidebar-nav-item">
+                <a class="js-scroll-trigger" href="#services">Services</a>
+            </li>
+            <li class="sidebar-nav-item">
+                <a class="js-scroll-trigger" href="#portfolio">Portfolio</a>
+            </li>
+            <li class="sidebar-nav-item">
+                <a class="js-scroll-trigger" href="#contact">Contact</a>
+            </li>
+        </ul>
+    </nav> #}
+    <!-- Header -->
+    <header class="masthead d-flex">
+        <div class="container text-center my-auto">
+            <h1 class="mb-1">TEST TEST TEST</h1>
+            <h3 class="mb-5">
+                <em>test test test test</em>
+            </h3>
+            {# <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Find Out More</a> #}
+        </div>
+        {# <div class="overlay"></div> #}
+    </header>
+{% endblock %}
+{% block javascripts %}
+<!-- Bootstrap core JavaScript -->
+<script src="{{ asset('utils/vendor/jquery/jquery.min.js') }}"></script>
+<script src="{{ asset('utils/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<!-- Plugin JavaScript -->
+<script src="{{ asset('utils/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
+<!-- Custom scripts for this template -->
+<script src="{{ asset('utils/js/stylish-portfolio.min.js') }}"></script>
 {% endblock %}
