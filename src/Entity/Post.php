@@ -6,7 +6,16 @@ use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ApiResource()
+ * @ApiResource(
+  *     forceEager=false,
+ *     normalizationContext={"groups"={"read"}, "enable_max_depth"=false},
+ *     denormalizationContext={"groups"={"putUser"}},
+ *     collectionOperations={
+ *         "get" = {"access_control"="is_granted('ROLE_USER')"},
+ *         "post"={"access_control"="is_granted('ROLE_USER')"},
+ *     },
+ * attributes={"access_control"="is_granted('ROLE_USER')"}
+ * )
  * @ORM\Entity(repositoryClass="App\Repository\PostRepository")
  */
 class Post
