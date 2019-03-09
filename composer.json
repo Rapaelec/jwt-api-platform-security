@@ -8,6 +8,7 @@
         "api-platform/admin-pack": "^1.0",
         "api-platform/api-pack": "^1.2",
         "lexik/jwt-authentication-bundle": "^2.6",
+        "phpunit/phpunit": "^8.0",
         "sensio/framework-extra-bundle": "^5.1",
         "symfony/asset": "4.2.*",
         "symfony/console": "4.2.*",

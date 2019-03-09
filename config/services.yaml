@@ -24,5 +24,10 @@ services:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
 
+    app.event.jwt_invalid_listener:
+        class: App\EventListener\JWTInvalidListener
+        tags:
+            - { name: kernel.event_listener, event: lexik_jwt_authentication.on_jwt_invalid, method: onJWTInvalid }
+
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
